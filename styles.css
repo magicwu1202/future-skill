@@ -1,4 +1,4 @@
-/* Future Skill — 面向 Global 领导的五分钟展示，视觉语言对齐 apple.com */
+/* Future Skill — 面向 Global 领导的五分钟展示，背景色对齐 www.abb.com */
 
 @font-face {
   font-family: "Geist";
@@ -25,16 +25,18 @@
 }
 
 :root {
-  --ink: #1d1d1f;
-  --muted: #6e6e73;
-  --faint: #86868b;
-  --line: rgba(0, 0, 0, 0.1);
+  /* 取自 abb.com 的设计令牌：红 #e00、字色 #1f1f1f、浅灰底 #ebebeb、深底 #1f1f1f */
+  --ink: #1f1f1f;
+  --muted: #858585;
+  --faint: #9e9e9e;
+  --line: #dbdbdb;
   --paper: #ffffff;
-  --gray: #f5f5f7;
-  --black: #000000;
-  --snow: #f5f5f7;
-  --blue: #0071e3;
-  --amber: #ff9f0a;
+  --gray: #ebebeb;
+  --black: #1f1f1f;
+  --snow: #ffffff;
+  --red: #ee0000;
+  --red-deep: #b10303;
+  --amber: #ffa200;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   --shadow: 0 1px 1px rgba(0, 0, 0, 0.04), 0 10px 30px rgba(0, 0, 0, 0.08);
 }
@@ -76,7 +78,7 @@ button {
 }
 
 ::selection {
-  background: var(--blue);
+  background: var(--red);
   color: #fff;
 }
 
@@ -129,13 +131,13 @@ button {
 }
 
 .nav-notes {
-  background: var(--ink);
+  background: var(--red);
   color: #fff;
 }
 
 .nav-notes:hover {
   color: #fff;
-  background: #333;
+  background: var(--red-deep);
 }
 
 .nav-timer.is-running {
@@ -198,7 +200,7 @@ body[data-surface="dark"] .dot[aria-current="true"] {
 .timeline-fill {
   width: 0;
   height: 100%;
-  background: var(--blue);
+  background: var(--red);
 }
 
 .timeline-fill.is-over {
@@ -260,9 +262,7 @@ body[data-surface="dark"] .dot[aria-current="true"] {
 }
 
 .is-dark {
-  background:
-    radial-gradient(ellipse 90% 55% at 50% 115%, rgba(255, 255, 255, 0.07), transparent 58%),
-    var(--black);
+  background: var(--black);
   color: var(--snow);
 }
 
@@ -354,12 +354,35 @@ body[data-surface="dark"] .dot[aria-current="true"] {
   opacity: 0;
 }
 
-/* 硬技能 / 软技能对开 */
+/* 开场团队漫画，压在标题上方，避免撑破一屏 */
+.team {
+  width: min(860px, 100%);
+  height: min(30vh, 280px);
+  object-fit: cover;
+  object-position: center 38%;
+  border-radius: 16px;
+  margin: 0 0 22px;
+}
+
+.slide-open .display {
+  font-size: clamp(46px, 6vw, 84px);
+}
+
+.slide-open .lede {
+  margin-top: 16px;
+}
+
+.slide-open .hint {
+  margin-top: 18px;
+}
+
+/* 硬技能 / 软技能对开，两侧同一块浅灰底 */
 .slide-split {
   display: grid;
   grid-template-columns: 1fr 1fr;
   padding: 0;
   align-items: stretch;
+  background: var(--gray);
 }
 
 .half {
@@ -368,16 +391,12 @@ body[data-surface="dark"] .dot[aria-current="true"] {
   justify-content: flex-end;
   min-height: 100dvh;
   padding: 12vh clamp(28px, 4vw, 72px) 10vh;
-}
-
-.half-dark {
-  background: var(--black);
-  color: var(--snow);
-}
-
-.half-light {
-  background: var(--paper);
+  background: var(--gray);
   color: var(--ink);
+}
+
+.half + .half {
+  border-left: 1px solid var(--line);
 }
 
 .half h2 {
@@ -392,8 +411,8 @@ body[data-surface="dark"] .dot[aria-current="true"] {
   margin-bottom: 14px;
 }
 
-.half-dark .eyebrow {
-  color: rgba(255, 255, 255, 0.55);
+.half .eyebrow {
+  color: var(--muted);
 }
 
 .half-lines {
@@ -404,12 +423,23 @@ body[data-surface="dark"] .dot[aria-current="true"] {
   letter-spacing: -0.02em;
 }
 
-.half-dark .half-lines {
-  color: rgba(255, 255, 255, 0.78);
+.half .half-lines {
+  color: var(--muted);
 }
 
-.half-light .half-lines {
-  color: var(--muted);
+/* 效率与评价合并后的一页 */
+.slide-merge .headline {
+  font-size: clamp(40px, 4.8vw, 68px);
+}
+
+.slide-merge .domains {
+  justify-content: flex-start;
+  margin-top: 22px;
+}
+
+.slide-merge .stack {
+  max-width: 40em;
+  margin-top: 32px;
 }
 
 /* 事实页的四个领域 */
@@ -521,7 +551,7 @@ body[data-surface="dark"] .dot[aria-current="true"] {
   font-weight: 600;
   letter-spacing: -0.035em;
   line-height: 1.12;
-  color: #a1a1a6;
+  color: #9e9e9e;
 }
 
 .poem p.is-last {
@@ -547,10 +577,20 @@ body[data-surface="dark"] .dot[aria-current="true"] {
 }
 
 .shift h2 {
-  margin: 0 0 12px;
-  font-size: clamp(28px, 2.6vw, 36px);
+  margin: 0 0 10px;
+  font-size: clamp(26px, 2.2vw, 32px);
   font-weight: 600;
   letter-spacing: -0.035em;
+}
+
+#judgment {
+  padding-top: 64px;
+  padding-bottom: 40px;
+}
+
+#judgment .shift p {
+  font-size: 16px;
+  line-height: 1.35;
 }
 
 .shift p {
@@ -574,7 +614,7 @@ body[data-surface="dark"] .dot[aria-current="true"] {
 }
 
 .lockup .sep-dot {
-  color: #d2d2d7;
+  color: #dbdbdb;
 }
 
 /* 收束 */
@@ -670,9 +710,20 @@ body[data-surface="dark"] .dot[aria-current="true"] {
     grid-template-columns: 1fr;
   }
 
-  .half {
+  .half,
+  .half + .half {
     min-height: auto;
     padding: 72px 24px;
+    border-left: 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .slide-split .half:first-child {
+    border-top: 0;
+  }
+
+  .team {
+    height: 28vh;
   }
 
   .slide-split {
@@ -712,6 +763,6 @@ body[data-surface="dark"] .dot[aria-current="true"] {
 }
 
 :focus-visible {
-  outline: 2px solid var(--blue);
+  outline: 2px solid var(--red);
   outline-offset: 3px;
 }

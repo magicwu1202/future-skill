@@ -24,48 +24,43 @@ let timerFrame = 0;
 const notesById = {
   open: {
     cue: { en: "0:00 – 0:20  ·  Open", zh: "0:00 – 0:20  ·  开场" },
-    en: "Future skill, as we see it, is two things. A hard skill: AI adaptability. A soft skill: management development. Five minutes on what we want the Group to help build, and the support that makes it real.",
-    zh: "Future Skill，我们分成两件事。硬技能，是 AI Adaptability。软技能，是 Management Development。下面五分钟，讲我们希望集团一起建设的能力，以及需要的支持。"
+    en: "Future skills, for us, is two things. Hard skills: AI adaptability. Soft skills: management development. Five minutes on what we want to build, and the help we need to get there.",
+    zh: "Future Skills，对我们来说是两件事。硬技能，是 AI Adaptability。软技能，是 Management Development。下面五分钟，讲我们想建设什么，以及做到这件事需要什么帮助。"
   },
   skills: {
     cue: { en: "0:20 – 0:45  ·  Two skills", zh: "0:20 – 0:45  ·  两种能力" },
-    en: "AI adaptability means using the tools at real depth, and sharing in the value that creates. Management development, here, means understanding the customer’s business well enough to earn the order. Neither one happens if we leave it to individual effort.",
-    zh: "硬技能，是把工具用到足够深，并让创造价值的人分享价值。软技能这一侧，Management Development 指的是看懂客户的业务，从而赢得订单。这两件事，都不是靠个人自觉就能完成的。"
+    en: "Hard skills means using the tools for real, and sharing in what that creates. Soft skills, here, means knowing the customer’s business well enough to win the work. Neither one happens if we leave it to people figuring it out on their own.",
+    zh: "硬技能，是把工具真正用起来，并分享它带来的结果。软技能这边，是看懂客户的业务，从而拿下订单。这两件事，都不是靠个人自己摸索就能完成的。"
   },
-  fact: {
-    cue: { en: "0:45 – 1:05  ·  The fact", zh: "0:45 – 1:05  ·  一个事实" },
-    en: "Both sides start from one fact. Delivery is already faster. Engineering, documentation, simulation, and fault diagnosis all take less time.",
-    zh: "两边共用一个事实：交付已经变快了。工程、文档、仿真、故障诊断，花费的时间都在减少。"
-  },
-  evaluate: {
-    cue: { en: "1:05 – 1:50  ·  Build, hard skill", zh: "1:05 – 1:50  ·  建设，硬技能" },
-    en: "On the hard-skill side, that speed is not showing up where it should. The efficiency does not translate into tangible benefits for the people who drive it. We are asking for a concrete plan that links AI-driven productivity to performance evaluation, so people who actively embrace these tools share in the value they create.",
-    zh: "硬技能这边，快出来的效率没有进入评价。工具在省时间，但推动这件事的人没有分享到价值。我们希望有一套具体的办法，把 AI 带来的生产力写进绩效。主动拥抱工具的人，应该分享他们创造的价值。"
+  efficiency: {
+    cue: { en: "0:45 – 1:50  ·  Build, hard skills", zh: "0:45 – 1:50  ·  建设，硬技能" },
+    en: "Efficiency is already higher. Engineering, documentation, simulation, and fault diagnosis all take less time. On the hard-skills side, that saved time still isn’t showing up when we evaluate people. The tools are saving time, but the people doing the work don’t see that come back to them. We want a simple link between that productivity and performance, so the people who use the tools share in what they create.",
+    zh: "效率已经更高了。工程、文档、仿真、故障诊断，花的时间都在变少。硬技能这边，省下的时间还没有体现在对人的评价里。工具在省时间，但真正在做的人还没看到回报。我们希望把这份产出和绩效简单连起来，让愿意用工具的人分享他们创造的结果。"
   },
   tokens: {
-    cue: { en: "1:50 – 2:40  ·  Support, hard skill", zh: "1:50 – 2:40  ·  支持，硬技能" },
-    en: "Two kinds of support make this practical. First, a token allocation at Group level. For digital and software teams, hard usage targets comparable to leading internet companies, so engineers can experiment and build at scale. For everyone else, encouragement rather than a mandatory target. The quota is there for experimentation. Either way, a Group quota is what makes it possible. Second, a sanctioned pathway to leading overseas AI tools, inside China’s data-security and regulatory requirements, so teams can use the best tools without carrying the compliance risk themselves.",
-    zh: "要落地，需要两种支持。第一，集团层面的 token 配额。数字化和软件团队，设对标领先互联网公司的使用目标，工程师才能规模化地试验和构建。其他同事以鼓励为主，不设强制指标，配额用来支持尝试。没有集团配额，这件事做不成。第二，一条被批准的路径，在中国数据安全和监管要求之内使用领先的海外 AI 工具。让团队用上最好的工具，同时不把合规风险留给个人。"
+    cue: { en: "1:50 – 2:40  ·  Support, hard skills", zh: "1:50 – 2:40  ·  支持，硬技能" },
+    en: "Two kinds of help make this practical. First, a token quota at Group level. For digital and software teams, usage in the same range as leading internet companies, so engineers can try things and build at scale. For everyone else, encouragement, not a mandatory target. The quota is there so people can try. Either way, it has to be a Group quota. Second, an approved way to the best overseas AI tools, inside China’s data-security rules, so people can use them without carrying the compliance risk themselves.",
+    zh: "要做成，需要两种帮助。第一，集团层面的 token 配额。数字化和软件团队，用量对齐领先的互联网公司，工程师才能放手试、规模化地做。其他同事鼓励就好，不设硬指标，配额是为了让人敢试。不管哪一种，都得是集团配额。第二，在中国数据安全要求之内，有一条被批准的路，能用上最好的海外 AI 工具，同时不把合规风险留在个人身上。"
   },
   orders: {
-    cue: { en: "2:40 – 3:25  ·  Build, soft skill", zh: "2:40 – 3:25  ·  建设，软技能" },
-    en: "The same speed has a different consequence. Faster delivery does not create demand, and it does not bring orders. A customer buys when someone understands their operational problem, earns their trust, frames the solution around their outcomes, and aligns our teams to deliver it. Business understanding and customer-facing influence are becoming more important, not less.",
-    zh: "同样的变快，对软技能是另一件事。更快的交付不会创造需求，也不会带来订单。客户下单，是因为有人看懂他的运营问题，赢得信任，用他在意的结果来定义方案，并组织内部团队交付。所以业务理解，和面向客户的影响力，会更重要，而不是更不重要。"
+    cue: { en: "2:40 – 3:25  ·  Build, soft skills", zh: "2:40 – 3:25  ·  建设，软技能" },
+    en: "The same change looks different here. Higher efficiency may not create demand, and it may not bring an order. A customer says yes when someone gets their problem, earns their trust, talks about the result they want, and gets our teams lined up to deliver it. Knowing the business, and being able to talk to the customer, matter more, not less.",
+    zh: "同样的变化，在软技能这边是另一回事。效率更高，未必创造需求，也未必带来订单。客户点头，是因为有人看懂他的问题，赢得信任，聊的是他想要的结果，还能把我们的团队组织起来做成。所以看懂业务、能和客户说话，会更重要，不是更不重要。"
   },
   judgment: {
-    cue: { en: "3:25 – 4:15  ·  What changed", zh: "3:25 – 4:15  ·  三个变化" },
-    en: "The requirement has changed in three ways. Business understanding is now the differentiator: the advantage is knowing where value sits, in energy cost, uptime, and throughput. Trust carries more weight, because customers can generate the analysis themselves. Credibility, clear trade-offs, and the relationship decide. Judgment matters more, because someone has to decide what is right, challenge the output, and adapt as the tools change.",
-    zh: "要求变了，变在三处。业务理解成为差别：优势在于知道价值在客户流程的哪里，比如能耗、开机时间、产出。信任更有分量：客户自己就能生成分析，决定订单的是可信，是把取舍讲清楚，是和决策者的关系。判断更重要：输出很容易，人必须判断什么是对的，质疑 AI 的结果，并在工具变化时跟上。"
+    cue: { en: "3:25 – 4:15  ·  What this asks", zh: "3:25 – 4:15  ·  对人的要求" },
+    en: "Three things shift. Know the business: it helps to see where the value sits for the customer, in energy cost, uptime, and throughput. Trust: customers can pull the analysis themselves, so it helps to be clear about the trade-offs and close to the people who decide. A second look: answers are easy to get now. Someone still needs to see if they hold up, and keep up as the tools change.",
+    zh: "有三处在变。看懂业务：需要看见价值在客户那里的哪一段，比如能耗、开机时间、产出。信任：客户自己就能拿出分析，所以还有用的是把取舍讲清楚，并和做决定的人保持近。再看一眼：答案现在很容易拿到，还是需要有人看看它站不站得住，并在工具变化时跟上。"
   },
   rotation: {
-    cue: { en: "4:15 – 4:40  ·  Support, soft skill", zh: "4:15 – 4:40  ·  支持，软技能" },
-    en: "AI has made it much faster to turn an idea into a business outcome. What gates that speed is whether people understand the business. Once they do, they can translate AI into growth quickly. We would welcome more rotation across businesses, functions, and markets.",
-    zh: "AI 已经让想法变成业务结果的速度变快了。现在更缺的是对业务的深入理解。理解了，就能很快把 AI 转成增长。所以我们希望有更多轮岗，跨业务、跨职能、跨市场。"
+    cue: { en: "4:15 – 4:40  ·  Support, soft skills", zh: "4:15 – 4:40  ·  支持，软技能" },
+    en: "AI has made it much faster to turn an idea into a business result. What slows that down is whether people understand the business. Once they do, they can turn AI into growth quickly. We’d like more rotation across businesses, functions, and markets.",
+    zh: "AI 已经让一个想法变成业务结果的速度变快了。现在拖住它的，是人看不看懂业务。看懂了，就能很快把 AI 转成增长。所以我们希望有更多轮岗，跨业务、跨职能、跨市场。"
   },
   ask: {
     cue: { en: "4:40 – 5:00  ·  The ask", zh: "4:40 – 5:00  ·  收束" },
-    en: "Three decisions. Link AI productivity to performance. Provide a Group token quota, and a compliant path to the best tools. Create rotation that builds business judgment. Execution is getting cheaper. Judgment is not.",
-    zh: "请集团定三件事。把 AI 带来的生产力写进绩效。给出集团 token 配额，并开通合规使用最好工具的路径。用轮岗培养业务判断。执行会越来越便宜。判断不会。"
+    en: "Three things we need. Link AI productivity to how we evaluate people. A Group token quota, and a compliant way to the best tools. Rotation across businesses, functions, and markets. Getting the work done is getting cheaper. Knowing what matters is not.",
+    zh: "我们需要三件事。把 AI 带来的产出，和评价人的方式连起来。给出集团 token 配额，并有一条合规用上最好工具的路。跨业务、跨职能、跨市场轮岗。把事做出来会越来越便宜。知道什么重要，不会。"
   }
 };
 
