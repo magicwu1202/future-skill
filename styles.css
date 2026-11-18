@@ -354,15 +354,65 @@ body[data-surface="dark"] .dot[aria-current="true"] {
   opacity: 0;
 }
 
-/* 开场团队漫画，压在标题上方，避免撑破一屏 */
-.team {
+/* 开场团队漫画。名字按画面里从左到右的位置落在每个人脚下 */
+.team-shot {
+  position: relative;
   width: min(860px, 100%);
+  margin: 0 0 22px;
+  border-radius: 16px;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.team {
+  width: 100%;
   height: min(30vh, 280px);
   object-fit: cover;
   object-position: center 38%;
-  border-radius: 16px;
-  margin: 0 0 22px;
+  display: block;
 }
+
+.team-shot::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 72px;
+  background: linear-gradient(to top, rgba(17, 17, 17, 0.78), rgba(17, 17, 17, 0));
+  pointer-events: none;
+}
+
+.team-names {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 11px;
+  z-index: 1;
+  margin: 0;
+  padding: 0;
+}
+
+.team-names span {
+  position: absolute;
+  bottom: 0;
+  left: var(--at);
+  transform: translateX(-50%);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.45);
+}
+
+.team-names span:nth-child(1) { --at: 23.3%; }
+.team-names span:nth-child(2) { --at: 34.4%; }
+.team-names span:nth-child(3) { --at: 45.9%; }
+.team-names span:nth-child(4) { --at: 54.7%; }
+.team-names span:nth-child(5) { --at: 64.2%; }
+.team-names span:nth-child(6) { --at: 72.3%; }
 
 .slide-open .display {
   font-size: clamp(46px, 6vw, 84px);
@@ -762,6 +812,11 @@ body[data-surface="dark"] .dot[aria-current="true"] {
     height: 28vh;
   }
 
+  .team-names span {
+    font-size: 11px;
+    letter-spacing: 0;
+  }
+
   .slide-split {
     min-height: 100dvh;
   }
@@ -784,6 +839,17 @@ body[data-surface="dark"] .dot[aria-current="true"] {
 
   .nav-notes {
     display: none;
+  }
+}
+
+/* 窄屏上相邻的名字会叠在一起，隔一个抬高一行 */
+@media (max-width: 640px) {
+  .team-names span:nth-child(odd) {
+    bottom: 18px;
+  }
+
+  .team-shot::after {
+    height: 92px;
   }
 }
 
