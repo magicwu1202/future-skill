@@ -376,13 +376,12 @@ body[data-surface="dark"] .dot[aria-current="true"] {
   margin-top: 18px;
 }
 
-/* 硬技能 / 软技能对开，两侧同一块浅灰底 */
+/* 硬技能黑底，软技能灰底 */
 .slide-split {
   display: grid;
   grid-template-columns: 1fr 1fr;
   padding: 0;
   align-items: stretch;
-  background: var(--gray);
 }
 
 .half {
@@ -391,12 +390,16 @@ body[data-surface="dark"] .dot[aria-current="true"] {
   justify-content: flex-end;
   min-height: 100dvh;
   padding: 12vh clamp(28px, 4vw, 72px) 10vh;
-  background: var(--gray);
-  color: var(--ink);
 }
 
-.half + .half {
-  border-left: 1px solid var(--line);
+.half-hard {
+  background: var(--black);
+  color: var(--snow);
+}
+
+.half-soft {
+  background: var(--gray);
+  color: var(--ink);
 }
 
 .half h2 {
@@ -411,7 +414,11 @@ body[data-surface="dark"] .dot[aria-current="true"] {
   margin-bottom: 14px;
 }
 
-.half .eyebrow {
+.half-hard .eyebrow {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.half-soft .eyebrow {
   color: var(--muted);
 }
 
@@ -423,8 +430,21 @@ body[data-surface="dark"] .dot[aria-current="true"] {
   letter-spacing: -0.02em;
 }
 
-.half .half-lines {
+.half-hard .half-lines {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.half-soft .half-lines {
   color: var(--muted);
+}
+
+.is-dark .domains li,
+.is-dark .stack p {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.is-dark .stack p.emphasis {
+  color: #fff;
 }
 
 /* 效率与评价合并后的一页 */
@@ -583,9 +603,21 @@ body[data-surface="dark"] .dot[aria-current="true"] {
   letter-spacing: -0.035em;
 }
 
-#judgment {
+#softbuild {
   padding-top: 64px;
   padding-bottom: 40px;
+}
+
+.is-dark .shifts {
+  border-top-color: rgba(255, 255, 255, 0.16);
+}
+
+.is-dark .shift + .shift {
+  border-left-color: rgba(255, 255, 255, 0.16);
+}
+
+.is-dark .shift p {
+  color: rgba(255, 255, 255, 0.7);
 }
 
 #judgment .shift p {
@@ -617,44 +649,52 @@ body[data-surface="dark"] .dot[aria-current="true"] {
   color: #dbdbdb;
 }
 
-/* 收束 */
-.ask-grid {
-  display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  gap: clamp(28px, 4vw, 64px);
-  align-items: end;
-  width: min(1100px, 100%);
+/* 收束：上面两句，下面三条并排 */
+.ask-close {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: clamp(40px, 6vh, 72px);
 }
 
 .asks {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   margin: 0;
   padding: 0;
   list-style: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
 }
 
 .asks li {
-  display: grid;
-  grid-template-columns: 42px 1fr;
-  gap: 8px;
-  align-items: baseline;
-  padding: 16px 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.16);
-  font-size: clamp(20px, 2.1vw, 30px);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+  padding: 22px 28px 0 0;
+  font-size: clamp(18px, 1.7vw, 24px);
   font-weight: 600;
   letter-spacing: -0.03em;
-  line-height: 1.2;
+  line-height: 1.25;
+}
+
+.asks li + li {
+  padding-left: 28px;
+  border-left: 1px solid rgba(255, 255, 255, 0.16);
 }
 
 .asks li > span:first-child {
   color: rgba(255, 255, 255, 0.4);
+  font-size: 15px;
   font-variant-numeric: tabular-nums;
 }
 
 .closer {
   margin: 0;
-  font-size: clamp(36px, 4vw, 60px);
+  max-width: 14em;
+  font-size: clamp(36px, 4.4vw, 64px);
   font-weight: 600;
-  line-height: 1.02;
+  line-height: 1.05;
   letter-spacing: -0.04em;
 }
 
@@ -665,6 +705,7 @@ body[data-surface="dark"] .dot[aria-current="true"] {
 
 .closer-hard {
   display: block;
+  margin-top: 8px;
 }
 
 /* 入场 */
@@ -706,7 +747,7 @@ body[data-surface="dark"] .dot[aria-current="true"] {
   .copy-grid,
   .pair,
   .shifts,
-  .ask-grid {
+  .asks {
     grid-template-columns: 1fr;
   }
 
@@ -715,11 +756,6 @@ body[data-surface="dark"] .dot[aria-current="true"] {
     min-height: auto;
     padding: 72px 24px;
     border-left: 0;
-    border-top: 1px solid var(--line);
-  }
-
-  .slide-split .half:first-child {
-    border-top: 0;
   }
 
   .team {
@@ -733,7 +769,9 @@ body[data-surface="dark"] .dot[aria-current="true"] {
   .pair article:first-child,
   .pair article + article,
   .shift,
-  .shift + .shift {
+  .shift + .shift,
+  .asks li,
+  .asks li + li {
     padding: 22px 0;
     border: 0;
     border-top: 1px solid rgba(128, 128, 128, 0.25);

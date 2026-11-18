@@ -24,43 +24,38 @@ let timerFrame = 0;
 const notesById = {
   open: {
     cue: { en: "0:00 – 0:20  ·  Open", zh: "0:00 – 0:20  ·  开场" },
-    en: "Future skills, for us, is two things. Hard skills: AI adaptability. Soft skills: management development. Five minutes on what we want to build, and the help we need to get there.",
-    zh: "Future Skills，对我们来说是两件事。硬技能，是 AI Adaptability。软技能，是 Management Development。下面五分钟，讲我们想建设什么，以及做到这件事需要什么帮助。"
+    en: "Future skills, for us, is two things. Hard skills: AI adaptability. Soft skills: working across functions. Five minutes on what we want to build, and the help we need to get there.",
+    zh: "Future Skills，对我们来说是两件事。硬技能是 AI Adaptability。软技能是跨职能协作。下面五分钟，讲我们想建设什么，以及需要什么帮助。"
   },
   skills: {
     cue: { en: "0:20 – 0:45  ·  Two skills", zh: "0:20 – 0:45  ·  两种能力" },
-    en: "Hard skills means using the tools for real, and sharing in what that creates. Soft skills, here, means knowing the customer’s business well enough to win the work. Neither one happens if we leave it to people figuring it out on their own.",
-    zh: "硬技能，是把工具真正用起来，并分享它带来的结果。软技能这边，是看懂客户的业务，从而拿下订单。这两件事，都不是靠个人自己摸索就能完成的。"
+    en: "Hard skills means using the AI tools for real, and sharing in what that creates. Soft skills means working across functions, not staying inside one team. Neither one happens if we leave it to people figuring it out on their own.",
+    zh: "硬技能，是把 AI 工具真正用起来，并分享它带来的结果。软技能，是跨职能一起做，而不是只待在自己的团队里。这两件事，都不是靠个人自己摸索就能完成的。"
   },
   efficiency: {
     cue: { en: "0:45 – 1:50  ·  Build, hard skills", zh: "0:45 – 1:50  ·  建设，硬技能" },
-    en: "Efficiency is already higher. Engineering, documentation, simulation, and fault diagnosis all take less time. On the hard-skills side, that saved time still isn’t showing up when we evaluate people. The tools are saving time, but the people doing the work don’t see that come back to them. We want a simple link between that productivity and performance, so the people who use the tools share in what they create.",
-    zh: "效率已经更高了。工程、文档、仿真、故障诊断，花的时间都在变少。硬技能这边，省下的时间还没有体现在对人的评价里。工具在省时间，但真正在做的人还没看到回报。我们希望把这份产出和绩效简单连起来，让愿意用工具的人分享他们创造的结果。"
+    en: "This is how we build the hard skill. It is an AI skill, and we build it on the job. Learn the tools well enough to use them for real. Apply them to the work we already do: engineering, documentation, simulation, and fault diagnosis. Then use them on the next job too. That is how the skill sticks.",
+    zh: "硬技能就是 AI 技能，我们在工作里把它建起来。先把工具用到能真正干活。再用到已经在做的事上：工程、文档、仿真、故障诊断。下一份工作也接着用。技能是这么留下来的。"
   },
   tokens: {
     cue: { en: "1:50 – 2:40  ·  Support, hard skills", zh: "1:50 – 2:40  ·  支持，硬技能" },
-    en: "Two kinds of help make this practical. First, a token quota at Group level. For digital and software teams, usage in the same range as leading internet companies, so engineers can try things and build at scale. For everyone else, encouragement, not a mandatory target. The quota is there so people can try. Either way, it has to be a Group quota. Second, an approved way to the best overseas AI tools, inside China’s data-security rules, so people can use them without carrying the compliance risk themselves.",
-    zh: "要做成，需要两种帮助。第一，集团层面的 token 配额。数字化和软件团队，用量对齐领先的互联网公司，工程师才能放手试、规模化地做。其他同事鼓励就好，不设硬指标，配额是为了让人敢试。不管哪一种，都得是集团配额。第二，在中国数据安全要求之内，有一条被批准的路，能用上最好的海外 AI 工具，同时不把合规风险留在个人身上。"
+    en: "To build that skill, we need two kinds of help. First, a Group token quota. Digital and software teams need usage in the same range as leading internet companies, so engineers can try things and build at scale. For everyone else, encourage them. Do not make it a target. The quota is there so people can try. Either way, it has to come from the Group. Second, an approved way to the best overseas AI tools, inside China’s data-security rules, so people can use them without carrying the compliance risk themselves.",
+    zh: "要把这个技能建起来，需要两种帮助。第一，集团的 token 配额。数字化和软件团队，用量对齐领先的互联网公司，工程师才能放手试、规模化地做。其他同事鼓励就好，不设硬指标，配额是为了让人敢试。不管哪一种，都得是集团给的。第二，在中国数据安全要求之内，有一条被批准的路，能用上最好的海外 AI 工具，同时不把合规风险留在个人身上。"
   },
-  orders: {
-    cue: { en: "2:40 – 3:25  ·  Build, soft skills", zh: "2:40 – 3:25  ·  建设，软技能" },
-    en: "The same change looks different here. Higher efficiency may not create demand, and it may not bring an order. A customer says yes when someone gets their problem, earns their trust, talks about the result they want, and gets our teams lined up to deliver it. Knowing the business, and being able to talk to the customer, matter more, not less.",
-    zh: "同样的变化，在软技能这边是另一回事。效率更高，未必创造需求，也未必带来订单。客户点头，是因为有人看懂他的问题，赢得信任，聊的是他想要的结果，还能把我们的团队组织起来做成。所以看懂业务、能和客户说话，会更重要，不是更不重要。"
-  },
-  judgment: {
-    cue: { en: "3:25 – 4:15  ·  What this asks", zh: "3:25 – 4:15  ·  对人的要求" },
-    en: "Three things shift. Know the business: it helps to see where the value sits for the customer, in energy cost, uptime, and throughput. Trust: customers can pull the analysis themselves, so it helps to be clear about the trade-offs and close to the people who decide. A second look: answers are easy to get now. Someone still needs to see if they hold up, and keep up as the tools change.",
-    zh: "有三处在变。看懂业务：需要看见价值在客户那里的哪一段，比如能耗、开机时间、产出。信任：客户自己就能拿出分析，所以还有用的是把取舍讲清楚，并和做决定的人保持近。再看一眼：答案现在很容易拿到，还是需要有人看看它站不站得住，并在工具变化时跟上。"
+  softbuild: {
+    cue: { en: "2:40 – 4:15  ·  Build, soft skills", zh: "2:40 – 4:15  ·  建设，软技能" },
+    en: "Soft skills are built in three ways, and all three are cross-functional. Fast study: learn another function, another business, or another market quickly. Collaboration: work across functions, not only inside your own team. Decision making: judge what matters, and make the call together.",
+    zh: "软技能靠三件事来建，三件都是跨职能的。快速学习：尽快看懂另一个职能、另一块业务，或另一个市场。协作：跨职能一起做，而不是只在自己的团队里。判断与决策：一起判断什么重要，并做出决定。"
   },
   rotation: {
     cue: { en: "4:15 – 4:40  ·  Support, soft skills", zh: "4:15 – 4:40  ·  支持，软技能" },
-    en: "AI has made it much faster to turn an idea into a business result. What slows that down is whether people understand the business. Once they do, they can turn AI into growth quickly. We’d like more rotation across businesses, functions, and markets.",
-    zh: "AI 已经让一个想法变成业务结果的速度变快了。现在拖住它的，是人看不看懂业务。看懂了，就能很快把 AI 转成增长。所以我们希望有更多轮岗，跨业务、跨职能、跨市场。"
+    en: "The support for soft skills is rotation, across businesses, functions, and markets. That is how people get out of their own function, see how the work fits together, and find where AI can help us grow.",
+    zh: "软技能需要的支持是轮岗，跨业务、跨职能、跨市场。人因此走出自己的职能，看见工作是怎么接在一起的，也看见 AI 能在哪里帮我们增长。"
   },
   ask: {
     cue: { en: "4:40 – 5:00  ·  The ask", zh: "4:40 – 5:00  ·  收束" },
-    en: "Three things we need. Link AI productivity to how we evaluate people. A Group token quota, and a compliant way to the best tools. Rotation across businesses, functions, and markets. Getting the work done is getting cheaper. Knowing what matters is not.",
-    zh: "我们需要三件事。把 AI 带来的产出，和评价人的方式连起来。给出集团 token 配额，并有一条合规用上最好工具的路。跨业务、跨职能、跨市场轮岗。把事做出来会越来越便宜。知道什么重要，不会。"
+    en: "Three things. Link AI productivity to how we evaluate people. A Group token quota, and a compliant way to the best tools. Rotation across businesses, functions, and markets. Doing the work is getting cheaper. The ability to judge and decide, across functions, matters more and more.",
+    zh: "三件事。把 AI 带来的产出，和评价人的方式连起来。给出集团 token 配额，并有一条合规用上最好工具的路。跨业务、跨职能、跨市场轮岗。做事会越来越便宜。跨职能做判断和决策的能力，愈发重要。"
   }
 };
 
