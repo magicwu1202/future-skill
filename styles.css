@@ -110,6 +110,7 @@ button {
 
 .nav-index,
 .nav-timer,
+.nav-word,
 .nav-notes {
   font-size: 13px;
   font-weight: 500;
@@ -118,6 +119,7 @@ button {
 }
 
 .nav-timer,
+.nav-word,
 .nav-notes {
   height: 30px;
   padding: 0 10px;
@@ -125,6 +127,7 @@ button {
 }
 
 .nav-timer:hover,
+.nav-word:hover,
 .nav-notes:hover,
 .nav-brand:hover {
   color: var(--ink);
@@ -653,9 +656,66 @@ body[data-surface="dark"] .dot[aria-current="true"] {
   letter-spacing: -0.035em;
 }
 
-#softbuild {
-  padding-top: 64px;
-  padding-bottom: 40px;
+/* 软技能三件事，标题本身撑起这一页 */
+.ways {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: min(1080px, 100%);
+  margin-top: clamp(28px, 5vh, 48px);
+  border-top: 1px solid var(--line);
+}
+
+.way {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 32px 36px 0 0;
+}
+
+.way + .way {
+  padding-left: 36px;
+  border-left: 1px solid var(--line);
+}
+
+.way h2 {
+  margin: 0;
+  font-size: clamp(32px, 2.8vw, 44px);
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+  white-space: nowrap;
+}
+
+.way p {
+  margin: 0;
+  max-width: 16em;
+  font-size: clamp(17px, 1.35vw, 20px);
+  line-height: 1.45;
+  color: var(--muted);
+}
+
+/* 从硬技能转到软技能 */
+.bridge {
+  margin: 0;
+  max-width: 16em;
+  font-size: clamp(36px, 4.2vw, 60px);
+  font-weight: 600;
+  line-height: 1.06;
+  letter-spacing: -0.04em;
+}
+
+.bridge-soft,
+.bridge-hard {
+  display: block;
+}
+
+.bridge-soft {
+  color: var(--muted);
+}
+
+.bridge-hard {
+  margin-top: 8px;
+  color: var(--ink);
 }
 
 .is-dark .shifts {
@@ -797,6 +857,7 @@ body[data-surface="dark"] .dot[aria-current="true"] {
   .copy-grid,
   .pair,
   .shifts,
+  .ways,
   .asks {
     grid-template-columns: 1fr;
   }
@@ -817,6 +878,11 @@ body[data-surface="dark"] .dot[aria-current="true"] {
     letter-spacing: 0;
   }
 
+  .ways {
+    margin-top: 8px;
+    border-top: 0;
+  }
+
   .slide-split {
     min-height: 100dvh;
   }
@@ -825,6 +891,8 @@ body[data-surface="dark"] .dot[aria-current="true"] {
   .pair article + article,
   .shift,
   .shift + .shift,
+  .way,
+  .way + .way,
   .asks li,
   .asks li + li {
     padding: 22px 0;
